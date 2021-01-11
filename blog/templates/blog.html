@@ -1,0 +1,53 @@
+{% extends 'base.html' %}
+{% load hitcount_tags %}
+
+{% block content %}
+    
+    <section class="hero-wrap hero-wrap-2" style="background-image: url('/media/bg_1.jpg');">
+      <div class="overlay"></div>
+      <div class="container">
+        <div class="row no-gutters slider-text align-items-center justify-content-center">
+          <div class="col-md-9 ftco-animate text-center">
+            <h1 class="mb-2 bread">Blog</h1>
+            <p class="breadcrumbs"><span class="mr-2"><a href="/">Home <i class="ion-ios-arrow-forward"></i></a></span> <span>Teacher <i class="ion-ios-arrow-forward"></i></span></p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+		
+		<section class="ftco-section bg-light">
+			<div class="container">
+				<div class="row">
+          
+          {% for post in post_list %}          
+            <div class="col-md-6 col-lg-4 ftco-animate">
+              <div class="blog-entry">
+                <a href="blog-single.html" class="block-20 d-flex align-items-end" style="background-image: url({{ post.title_image.url }});">
+                  <div class="meta-date text-center p-2">
+                    <span class="day">{{ post.created_on|date:'d' }}</span>
+                    <span class="mos">{{ post.created_on|date:'M' }}</span>
+                    <span class="yr">{{ post.created_on|date:'Y' }}</span>
+                  </div>
+                </a>
+                <div class="text bg-white p-4">
+                  <h3 class="heading"><a href="{% url 'post_detail' post.slug  %}">{{ post.title }}</a></h3>
+                  <p>{{ post.content_preview }}</p>
+                  <div class="d-flex align-items-center mt-4">
+                    <p class="mb-0"><a href="{% url 'post_detail' post.slug  %}" class="btn btn-primary">Read More <span class="ion-ios-arrow-round-forward"></span></a></p>
+                    <p class="ml-auto mb-0">
+                      <span class="mr-2">{{ post.author.first_name }} {{ post.author.last_name }}</span>
+                      <span class="icon-eye"></span> {% get_hit_count for post %}
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          {% endfor %}         
+          
+          </div>
+        </div>
+			</div>
+		</section>
+		
+{% endblock %}

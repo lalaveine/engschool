@@ -1,0 +1,11 @@
+[
+    {
+      "model": "courses.course",
+      "pk": 1,
+      "fields": {
+        "name": "Art",
+        "description": "We'll teach you art!",
+        "teacher": 1
+      }
+    }
+  ]

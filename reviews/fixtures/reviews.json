@@ -1,0 +1,22 @@
+[
+    {
+      "model": "reviews.review",
+      "pk": 1,
+      "fields": {
+        "reviewer_name": "Rodel Golez",
+        "review_text": "Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.",
+        "reviewer_image": "/reviews/teacher-4.jpg", 
+        "position": "Mother"
+      }
+    },
+    {
+        "model": "reviews.review",
+        "pk": 2,
+        "fields": {
+          "reviewer_name": "Ken Bosh",
+          "review_text": "Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.",
+          "reviewer_image": "/reviews/teacher-1.jpg", 
+          "position": "Father"
+        }
+      }
+  ]
